@@ -9,7 +9,7 @@ The tool can optionally generate remap files ahead of time for your current TATE
 The code is intentionally transparent and plain:
 
 - Static HTML, CSS, and JavaScript only.
-- No external scripts or CDNs.
+- No external scripts.
 - No file uploads. Browser folder access stays local to the user's machine.
 
 ## What It Installs
