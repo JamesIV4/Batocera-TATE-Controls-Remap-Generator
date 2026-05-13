@@ -10,22 +10,6 @@ The app is intentionally plain:
 - No external scripts or CDNs.
 - No file uploads. Browser folder access stays local to the user's machine.
 
-## Recommended Sharing Setup
-
-1. Create a GitHub repository.
-2. Copy this folder's files into the repo root.
-3. In GitHub, open **Settings > Pages**.
-4. Publish from the repo's main branch.
-5. Share the GitHub Pages URL.
-
-The folder can also be served locally for testing:
-
-```bash
-python -m http.server 8000
-```
-
-Then open `http://localhost:8000` in Chrome or Edge.
-
 ## Browser Support
 
 The installer uses the File System Access API, so folder writing currently works best in desktop Chrome or Edge over HTTPS. GitHub Pages is HTTPS, so it is a good hosting target.
