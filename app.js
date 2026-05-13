@@ -105,6 +105,21 @@ is_vertical_rom() {
     grep -Fxq "$rom_name" "$cache_file"
 }
 
+write_remap_contents() {
+    cat <<EOF
+# \${MARKER}
+input_player1_analog_dpad_mode = "3"
+input_player1_btn_up = "7"
+input_player1_btn_right = "5"
+input_player1_btn_down = "6"
+input_player1_btn_left = "4"
+input_player1_btn_x = "8"
+input_player1_btn_a = "0"
+input_player1_btn_b = "1"
+input_player1_btn_y = "9"
+EOF
+}
+
 write_clockwise_remap() {
     remap_core="$1"
     rom_name="$2"
@@ -119,18 +134,15 @@ write_clockwise_remap() {
     fi
 
     tmp_file="\${remap_file}.$$"
-    cat > "$tmp_file" <<EOF
-# \${MARKER}
-input_player1_analog_dpad_mode = "3"
-input_player1_btn_up = "7"
-input_player1_btn_right = "5"
-input_player1_btn_down = "6"
-input_player1_btn_left = "4"
-input_player1_btn_x = "8"
-input_player1_btn_a = "0"
-input_player1_btn_b = "1"
-input_player1_btn_y = "9"
-EOF
+    write_remap_contents > "$tmp_file" || {
+        rm -f "$tmp_file"
+        return 1
+    }
+
+    if [ -f "$remap_file" ] && cmp -s "$tmp_file" "$remap_file"; then
+        rm -f "$tmp_file"
+        return 0
+    fi
 
     mv "$tmp_file" "$remap_file"
 }
