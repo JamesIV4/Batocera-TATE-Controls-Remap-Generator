@@ -1,17 +1,18 @@
 :root {
-  color-scheme: light;
-  --bg: #f6f4ef;
-  --ink: #18211f;
-  --muted: #5f6d67;
-  --line: #d8ddd7;
-  --panel: #ffffff;
-  --panel-soft: #eef5f0;
-  --accent: #19705a;
-  --accent-strong: #0f5d49;
-  --gold: #b7791f;
-  --red: #b42318;
-  --blue: #2764a3;
-  --shadow: 0 16px 42px rgba(27, 38, 34, 0.1);
+  color-scheme: dark;
+  --bg: #111115;
+  --ink: #f3f0ea;
+  --muted: #aaa8b3;
+  --line: #373740;
+  --panel: #1b1b21;
+  --panel-soft: #25252d;
+  --panel-deep: #15151a;
+  --accent: #66b8ff;
+  --accent-strong: #a9d7ff;
+  --gold: #e0a04a;
+  --red: #ef7568;
+  --blue: #8fb9f3;
+  --shadow: 0 18px 46px rgba(0, 0, 0, 0.34);
 }
 
 * {
@@ -42,12 +43,20 @@ button {
   border-radius: 8px;
   padding: 0 14px;
   color: var(--ink);
-  background: var(--panel);
+  background: #23232a;
   cursor: pointer;
 }
 
 button:hover:not(:disabled) {
-  border-color: #aeb9b2;
+  border-color: #5e5f6c;
+  background: #292933;
+}
+
+button:focus-visible,
+summary:focus-visible,
+input:focus-visible {
+  outline: 3px solid #8ccaff;
+  outline-offset: 3px;
 }
 
 button:disabled {
@@ -56,21 +65,34 @@ button:disabled {
 }
 
 button.primary {
-  color: #ffffff;
-  border-color: var(--accent-strong);
+  color: #06111c;
+  border-color: #8ccaff;
   background: var(--accent);
 }
 
+button.primary:hover:not(:disabled) {
+  color: #03101b;
+  border-color: #b8ddff;
+  background: #87caff;
+}
+
 button.accent {
-  color: #ffffff;
-  border-color: #985f18;
+  color: #1a1005;
+  border-color: #efb160;
   background: var(--gold);
+}
+
+button.accent:hover:not(:disabled) {
+  color: #170d03;
+  border-color: #f3c780;
+  background: #ecb45f;
 }
 
 code {
   border-radius: 5px;
   padding: 1px 5px;
-  background: #edf1ee;
+  color: #dbeeff;
+  background: #292a33;
   font-family: ui-monospace, "Cascadia Code", "SFMono-Regular", Consolas, monospace;
   font-size: 0.92em;
 }
@@ -129,11 +151,11 @@ h1 {
 
 .notice {
   margin-bottom: 18px;
-  border: 1px solid #f0c2bb;
+  border: 1px solid #8d4038;
   border-radius: 8px;
   padding: 14px 16px;
-  color: #7a271a;
-  background: #fff4f2;
+  color: #ffd7d1;
+  background: #351713;
 }
 
 .hidden {
@@ -178,7 +200,7 @@ h1 {
   display: grid;
   grid-template-columns: 18px minmax(0, 1fr);
   gap: 10px;
-  align-items: start;
+  align-items: center;
   color: var(--muted);
   font-size: 0.94rem;
 }
@@ -186,8 +208,12 @@ h1 {
 .options input {
   width: 16px;
   height: 16px;
-  margin: 4px 0 0;
+  margin: 0;
   accent-color: var(--accent);
+}
+
+.option-text {
+  min-width: 0;
 }
 
 .status-box {
@@ -208,24 +234,24 @@ h1 {
   min-height: 26px;
   border-radius: 999px;
   padding: 0 10px;
-  color: #385048;
+  color: #dedde7;
   background: var(--panel-soft);
   font-size: 0.84rem;
   font-weight: 700;
 }
 
 .badge.ready {
-  color: #ffffff;
+  color: #06111c;
   background: var(--accent);
 }
 
 .badge.warn {
-  color: #6f450c;
-  background: #fff4d8;
+  color: #241604;
+  background: #f0bf69;
 }
 
 .badge.error {
-  color: #ffffff;
+  color: #210806;
   background: var(--red);
 }
 
@@ -243,18 +269,18 @@ h1 {
 
 .summary.empty {
   display: block;
-  border: 1px dashed #bcc8c0;
+  border: 1px dashed #5b5b67;
   border-radius: 8px;
   padding: 22px;
   color: var(--muted);
-  background: #fbfcfb;
+  background: var(--panel-deep);
 }
 
 .metric {
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 12px;
-  background: #fbfcfb;
+  background: var(--panel-deep);
 }
 
 .metric strong {
@@ -301,7 +327,7 @@ h1 {
   align-items: center;
   min-height: 42px;
   padding: 10px 14px;
-  border-top: 1px solid #edf0ed;
+  border-top: 1px solid #2b2b33;
 }
 
 .row:first-child {
@@ -319,8 +345,8 @@ h1 {
   justify-self: end;
   border-radius: 999px;
   padding: 4px 9px;
-  color: #385048;
-  background: #edf1ee;
+  color: #dedde7;
+  background: #2b2b33;
   font-size: 0.78rem;
   font-weight: 750;
   white-space: nowrap;
@@ -328,22 +354,22 @@ h1 {
 
 .pill.create,
 .pill.update {
-  color: #ffffff;
+  color: #06111c;
   background: var(--accent);
 }
 
 .pill.skip {
-  color: #6f450c;
-  background: #fff4d8;
+  color: #241604;
+  background: #f0bf69;
 }
 
 .pill.error {
-  color: #ffffff;
+  color: #210806;
   background: var(--red);
 }
 
 .pill.info {
-  color: #ffffff;
+  color: #07111a;
   background: var(--blue);
 }
 
@@ -362,6 +388,10 @@ h1 {
   cursor: pointer;
   color: var(--muted);
   font-weight: 700;
+}
+
+.log-panel summary:hover {
+  color: var(--ink);
 }
 
 .log {
