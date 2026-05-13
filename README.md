@@ -4,7 +4,7 @@
 
 A web tool for installing automatic clockwise RetroArch control remaps for vertical arcade games on Batocera/KNULLI devices.
 
-The web tool can generate remap files ahead of time for your current TATE games, and it also installs a boot script that creates remaps on-device for any newly added TATE games.
+The tool can optionally generate remap files ahead of time for your current TATE games, and it also installs a boot script that creates remaps on-device for any newly added TATE games.
 
 The app is intentionally plain:
 
