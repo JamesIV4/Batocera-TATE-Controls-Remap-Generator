@@ -6,7 +6,7 @@ A web tool for installing automatic clockwise RetroArch control remaps for verti
 
 The tool can optionally generate remap files ahead of time for your current TATE games, and it also installs a boot script that creates remaps on-device for any newly added TATE games.
 
-The app is intentionally plain:
+The code is intentionally transparent and plain:
 
 - Static HTML, CSS, and JavaScript only.
 - No external scripts or CDNs.
