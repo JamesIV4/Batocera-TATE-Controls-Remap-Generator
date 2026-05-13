@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Batocera TATE Controls Installer</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Local browser installer</p>
+          <h1>Batocera TATE Controls</h1>
+          <p class="lede">
+            Install automatic clockwise control remaps for vertical arcade games on Batocera and KNULLI SHARE drives.
+          </p>
+        </div>
+        <div class="trust-panel" aria-label="Trust notes">
+          <span>No uploads</span>
+          <span>No dependencies</span>
+          <span>No build step</span>
+        </div>
+      </section>
+
+      <section id="unsupported" class="notice hidden" role="alert">
+        This browser cannot write to folders from a web page. Use current Chrome or Edge over HTTPS, such as GitHub Pages.
+      </section>
+
+      <section class="workspace">
+        <aside class="controls">
+          <div class="control-group">
+            <button id="chooseButton" class="primary" type="button">Choose SHARE Folder</button>
+            <button id="rescanButton" type="button" disabled>Rescan</button>
+            <button id="installButton" class="accent" type="button" disabled>Install Changes</button>
+          </div>
+
+          <div class="options" aria-label="Install options">
+            <label>
+              <input id="installBootHook" type="checkbox" checked>
+              Patch <code>system/custom.sh</code>
+            </label>
+            <label>
+              <input id="generateRemaps" type="checkbox" checked>
+              Generate existing vertical-game remaps
+            </label>
+          </div>
+
+          <div class="status-box">
+            <span id="statusBadge" class="badge">Waiting</span>
+            <p id="targetLabel">No folder selected.</p>
+          </div>
+        </aside>
+
+        <section class="results" aria-live="polite">
+          <div id="summary" class="summary empty">
+            Choose the root of a Batocera SHARE drive to preview the install plan.
+          </div>
+
+          <div id="planList" class="plan-list"></div>
+
+          <details class="log-panel">
+            <summary>Activity Log</summary>
+            <div id="log" class="log"></div>
+          </details>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
