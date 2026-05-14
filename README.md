@@ -2,7 +2,7 @@
 
 [Launch Tool](https://jamesiv4.github.io/Batocera-TATE-Controls-Remap-Generator/)
 
-A web tool for installing automatic clockwise RetroArch control remaps for vertical arcade games on Batocera/KNULLI devices.
+A web tool for installing automatic counter-clockwise RetroArch control remaps for vertical arcade games on Batocera/KNULLI devices.
 
 The tool can optionally generate remap files ahead of time for your current TATE games, and it also installs a boot script that creates remaps on-device for any newly added TATE games.
 
