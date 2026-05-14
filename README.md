@@ -26,7 +26,7 @@ The `custom.sh` boot hook lets the remap script run automatically when the devic
 
 ## Remap Behavior
 
-The generated remaps rotate player 1 controls clockwise for TATE mode:
+The generated remaps rotate player 1 controls counter-clockwise for TATE mode:
 
 - D-pad directions
 - Left-stick-as-D-pad mode
