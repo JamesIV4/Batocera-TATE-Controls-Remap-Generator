@@ -28,7 +28,7 @@ ${BLOCK_END}`;
 const SHELL_SCRIPT = `#!/bin/bash
 
 # Generate RetroArch game remaps for vertical/TATE arcade games.
-# The remap rotates P1 D-pad, left-stick-as-D-pad, and ABXY clockwise.
+# The remap rotates P1 D-pad, left-stick-as-D-pad, and ABXY counter-clockwise.
 
 BIOS_ROOT="\${BIOS_ROOT:-/userdata/bios}"
 ROMS_ROOT="\${ROMS_ROOT:-/userdata/roms}"
@@ -120,7 +120,7 @@ input_player1_btn_y = "9"
 EOF
 }
 
-write_clockwise_remap() {
+write_tate_remap() {
     remap_core="$1"
     rom_name="$2"
     remap_dir="\${REMAPPINGS_ROOT}/\${remap_core}"
@@ -178,8 +178,8 @@ generate_for_rom() {
     esac
 
     if is_vertical_rom "$rom_name" "$dat_file" "$cache_file"; then
-        write_clockwise_remap "$remap_core" "$rom_name"
-        [ -n "$extra_remap_core" ] && write_clockwise_remap "$extra_remap_core" "$rom_name"
+        write_tate_remap "$remap_core" "$rom_name"
+        [ -n "$extra_remap_core" ] && write_tate_remap "$extra_remap_core" "$rom_name"
     fi
 }
 
